@@ -12,10 +12,41 @@ namespace ProjectTest{
        uNKNOWN
     }
 
+    struct Staff
+    {
+        int id, level;
+
+        public Staff(int input1, int input2)
+        {
+            id = input1;
+            level = input2;
+
+        }
+        public void Display()
+        {
+            string value1 = $"Input 1 = {id}";
+            string value2 = $"Input 2 = {level}";
+            Console.WriteLine(value1);
+            Console.WriteLine(value2);
+        }
+
+        public void incre()
+        {
+            id++;
+            level++;
+
+            Console.WriteLine(id++);
+            Console.WriteLine(level++);
+
+        }
+
+    }
+
     class Program{
        
        static void Main( string [] args){
             Console.Title = "King Ojem";
+            UserInput();
             //DefaultSettings();
             //DefaultDisplay.WelcomeMessage();
             //NewSettings();
@@ -28,12 +59,39 @@ namespace ProjectTest{
             //{
             //    Console.WriteLine("The Value Type is {0}", y);
             //}
-            Gender gen = Gender.fEMALE;
-            var j = gen.ToString();
-            Console.WriteLine(j);
-            Console.WriteLine("{0} = {1}", gen.ToString(), (byte)gen);
+            //Gender gen = Gender.fEMALE;
+            //var j = gen.ToString();
+            //Console.WriteLine(j);
+            //Console.WriteLine("{0} = {1}", gen.ToString(), (byte)gen);
         }
 
+        public static void UserInput()
+        {
+            object input1 = Console.ReadLine();
+            object input2 = Console.ReadLine();
+
+            var x = int.TryParse(input1.ToString(), out int k) ? k : input1;
+            var j = int.TryParse(input2.ToString(), out int i) ? i : input2;
+
+            if(x  == input1 || j == input2)
+            {
+                Console.WriteLine(Warning());
+            }
+            else
+            {
+                Staff staff = new Staff((int)x,(int)j);
+                staff.Display();
+                staff.incre();
+                
+            }
+
+             string Warning()
+             {
+                string Warn = "Invalid INput, Please input A Number";
+                return Warn;
+             }
+        }
+        
         public static void DefaultSettings(){
             ConsoleColor prev = Console.ForegroundColor;
             ConsoleColor backG = Console.BackgroundColor;
@@ -96,11 +154,11 @@ namespace ProjectTest{
         }
         public static string GenderDisplay(Gender e)
         {
-            return GEnderDisplayCall(e);
+            return GenderDisplayCall(e);
 
         }
 
-        private static string GEnderDisplayCall(Gender e)
+        private static string GenderDisplayCall(Gender e)
         {
             switch (e)
             {
