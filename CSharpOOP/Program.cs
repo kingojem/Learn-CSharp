@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpOOP
 {
-    class Program
+    class OOP
     {
         static void Main(string[] args)
         {
