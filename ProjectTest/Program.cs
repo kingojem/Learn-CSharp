@@ -38,7 +38,6 @@ namespace ProjectTest{
             {
                 id = input1;
                 level = input2;
-
             }
             public void Display() =>  DisplayValues();
             public void Increment() => IncrementLogic();
@@ -69,8 +68,21 @@ namespace ProjectTest{
        static void Main( string [] args)
        {
             Console.Title = "King Ojem";
+
+            //Console.WriteLine("Sending Person Details BY Value");
+            //Person james = new Person("tolu", 15);
+            //james.DisplayDetails();
+            //Console.WriteLine();
+            //SendDetails(person:james);
+            //james.DisplayDetails();
+            //Console.WriteLine();
+            //DetailsByRef(person: ref james);
+            //james.DisplayDetails();
+            //Console.WriteLine();
+
+
             //UserInput();
-            ValueAndRefrenceType();
+            // ValueAndRefrenceType();
             //DefaultSettings();
             //DefaultDisplay.WelcomeMessage();
             //NewSettings();
@@ -87,10 +99,51 @@ namespace ProjectTest{
             //var j = gen.ToString();
             //Console.WriteLine(j);
             //Console.WriteLine("{0} = {1}", gen.ToString(), (byte)gen);
-       }
 
+
+            //ThisIsNullablePractice thisIsNullablePractice = new ThisIsNullablePractice();
+            //int? i = thisIsNullablePractice.GetIntValue();
+            //bool? j = thisIsNullablePractice.GetBoolValue();
+            //if (i.HasValue)
+            //    Console.WriteLine("Value of 'i' is: {0}", i.Value); 
+            //else
+            //    Console.WriteLine("Value of I is Undefined");
+            //if(j != null)
+            //    Console.WriteLine("Value of 'J' is: {0}", j.Value);
+            //else
+            //    Console.WriteLine("Value of J is Undefined");
+
+            //int? m = thisIsNullablePractice.GetIntValue() ?? 56;
+            //    Console.WriteLine("Value of 'M' is: {0}", m.Value);
+
+            //string[] names = new string[2] { "peter", "jhon" };
+           // Nullable<int> names = new Nullable<int>[2];
+            NUll( null);
+
+        }
+
+        //static void SendDetails(Person person)
+        //{
+        //    person.Age = 34;
+
+        //    person = new Person("Peter", 65);
+        //}
+
+        //static void DetailsByRef(ref Person person)
+        //{
+        //    person.Age = 54;
+
+        //    person = new Person("Emmanuel", person.Age);
+        //}
+
+        static void NUll(string[] names)
+        {
+
+            Console.WriteLine($"Length is: {names?.Length ?? 0}");
+
+        }
         #region Work in The Calling and Manipulation Of structures(commonly called struct)
-            public static void UserInput()
+        public static void UserInput()
             {
                 object input1 = Console.ReadLine();
                 object input2 = Console.ReadLine();
@@ -134,7 +187,22 @@ namespace ProjectTest{
                 Console.WriteLine();
                 staff2.Display();
                 Console.WriteLine();
+                Console.WriteLine("This shows Refrennce Type");
+
+
+                Employee employee = new Employee("Emmanuel", 30);
+                Employee employee2 = employee;
+
+                employee.ShowDetails();
                 Console.WriteLine();
+                employee2.ShowDetails();
+                Console.WriteLine();
+
+                employee = new Employee("james", 400);
+                employee.ShowDetails();
+                Console.WriteLine( );
+                employee2.ShowDetails();
+
             }
         #endregion
 
@@ -158,23 +226,31 @@ namespace ProjectTest{
 
     }
 
-    #region Learning about Refrence and Value Type; Puting skill in action (Struct, enum Are Value Type, Not in The Head or Base Class System.Object)
+    #region The Class Used To Learn abpot ValueType and Refrence Type
         
     class Employee
     {
-        int id, level;
+        string id;
+        int level;
 
-        public Employee(int input1, int input2)
+        public Employee(string input1, int input2)
         {
             Employee employee = this;
             employee.id = input1;
             employee.level = input2;
         }
 
-        public void ShowDetails()
-        {
+        public void ShowDetails() => DetailsToShow();
+          
 
+        private void DetailsToShow()
+        {
+            string value1 = $"Input 1 = {id}";
+            string value2 = $"Input 2 = {level}";
+            Console.WriteLine(value1);
+            Console.WriteLine(value2);
         }
+        
     }
     #endregion
 
@@ -249,6 +325,49 @@ namespace ProjectTest{
         }
     #endregion
 
+
+
+    #region
+
+    class Person
+    {
+        public string Name;
+        public int Age;
+
+        public Person(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+        public Person() { }
+        public void DisplayDetails()
+        {
+            Console.WriteLine($"Person Name = {Name} \n Age = {Age}");
+        }
+
+       
+    }
+    class ThisIsNullablePractice
+    {
+        int? NumericValue = null;
+        bool? BoolValue = true;
+
+        //public ThisIsNullablePractice(int? numericValue, bool? boolValue)
+        //{
+        //    NumericValue = numericValue;
+        //    BoolValue = boolValue;
+
+        //}
+        public int? GetIntValue()
+        {
+            return NumericValue;
+        }
+        public bool? GetBoolValue()
+        {
+            return BoolValue;
+        }
+    } 
+    #endregion
 }
 
 
