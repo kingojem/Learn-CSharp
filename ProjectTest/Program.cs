@@ -19,7 +19,7 @@ using System.Windows.Forms;
 /// </summary>
 
 
-namespace ProjectTest{
+namespace CSharpBasics{
 
     #region Calling & Creating Enums, Changing Data Type etc
         enum Gender : byte{
@@ -69,6 +69,21 @@ namespace ProjectTest{
        {
             Console.Title = "King Ojem";
 
+            //(string FirstName, int Age, char Sex, bool? Likes) EmployeeDetails = ("emmanuel", 20, 'm', null);
+
+            //string userINput = Console.ReadLine();
+            //int userage = int.Parse(Console.ReadLine());
+            //var EmployeeDetails = (FirstName: userINput, Age: userage);
+            //Console.WriteLine("Your Name is {0}",EmployeeDetails.FirstName);
+
+            //var foo = new  { name1 = "james",name2= "emma" };
+            //var boo = (foo.name2);
+
+            //Console.WriteLine(boo.name2);
+
+
+
+
             //Console.WriteLine("Sending Person Details BY Value");
             //Person james = new Person("tolu", 15);
             //james.DisplayDetails();
@@ -117,9 +132,18 @@ namespace ProjectTest{
             //    Console.WriteLine("Value of 'M' is: {0}", m.Value);
 
             //string[] names = new string[2] { "peter", "jhon" };
-           // Nullable<int> names = new Nullable<int>[2];
-            NUll( null);
+            // Nullable<int> names = new Nullable<int>[2];
+            //NUll( null);
 
+           var test = SplitNames("Emmanuel");
+
+            Console.WriteLine(value:test.first);
+
+       }
+        static (string first, string middle, string last) SplitNames(string fullName)
+        {
+            //do what is needed to split the name apart  
+            return ("Philip", "F", "Japikse"); 
         }
 
         //static void SendDetails(Person person)
