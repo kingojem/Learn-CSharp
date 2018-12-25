@@ -50,6 +50,7 @@ namespace CSharpOOP
             SavingsAccount savingsAccount1 = new SavingsAccount(678977.4555);
             Console.WriteLine("Interest ADDition To this is : {0}", SavingsAccount.GetInterestAcquired());
         }
+        #region This Initialize The static class, also know as utility class, calls static data fields AND methods
         static void InitializeStaticClass()
         {
             StaticUndestanding.name = "Emmanuel";
@@ -57,6 +58,7 @@ namespace CSharpOOP
             StaticUndestanding.PrintDate();
             WriteLine(StaticUndestanding.PrintName() +"\n" );
         }
+        #endregion
     }
     #region Understanding The Concept OF STAtic Data,MEthods etc.. ; Making A Bank Savings Model
     class SavingsAccount
