@@ -13,8 +13,8 @@ namespace CSharpOOP
     {
         static void Main(string[] args)
         {
-            InitializeStaticClass();
-            
+
+            InitializeCar();
         }
         static void InitializeCar()
         {
@@ -23,6 +23,7 @@ namespace CSharpOOP
             Console.Title = car.brand;
             car.speed = 10;
             car.DisplayCurrentspeed();
+            car.TurnRadioON(true);
 
             for (int i = 0; i < 20; i++)
             {

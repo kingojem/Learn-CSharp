@@ -6,6 +6,29 @@ using System.Threading.Tasks;
 
 namespace CSharpOOP
 {
+    //This is a Utility Class, Cause all automobile Must Have
+
+    static class Radio
+    {
+        enum Radioswitch : int
+        {
+            ON = 1,
+            OFF = 2
+        }
+        static Radio()
+        {
+            
+        }
+        public static void TurnRadioON(bool control)
+        {
+            if (control == false)
+                Console.WriteLine($"Your Radio is Switched {Radioswitch.OFF} ");
+            else
+                Console.WriteLine($"Your Radio is Switched {Radioswitch.ON} ");
+
+        }
+        
+    }
     class Car
     {
         public string brand;
@@ -13,6 +36,11 @@ namespace CSharpOOP
 
         public void DisplayCurrentspeed() => Console.WriteLine("Your Current speed {0}MPH",speed);
         public void SpeedUp(int accelerate) => speed += accelerate;
+
+        public void TurnRadioON(bool Switch)
+        {
+            Radio.TurnRadioON(Switch);
+        }
     }
     class Motorcycle
     {
@@ -28,6 +56,8 @@ namespace CSharpOOP
         public Motorcycle(string brand, int DefaultSpeed)
         {
             this.brand = brand;
+            
+            
             speed = DefaultSpeed;
             driverIntensity += (speed / 4);
             
@@ -43,14 +73,9 @@ namespace CSharpOOP
             }
         }
 
-       
+        public void DisplayMotorCycleInfo() => Console.WriteLine($"The MotorCYcle Brand is {brand}\n Default Speed: {speed} \n Your Intencity {driverIntensity}");
         
 
-       
 
-        public void DisplayMotorCycleInfo()
-        {
-            Console.WriteLine($"The MotorCYcle Brand is {brand}\n Default Speed: {speed} \n Your Intencity {driverIntensity}");
-        }
     }
 }
