@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Console;  //  THIS dEFINES CONSOLE, GIVES ME THE ABILITY TO CALL METHODS LIKE WRITELINE AND READLINE DIRECTLY, FOR A MORE CLEAN CODEBASE
 using static System.DateTime;
 
@@ -14,8 +15,21 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
 
-            InitializeCar();
+            InitializeEmployee();
         }
+        #region This is the INItialization of the external employee class
+        static void InitializeEmployee()
+        {
+            Employee employee = new Employee("Emmanuel",2345,765f);
+            employee.DisplayStatus();
+            employee.IncreaseSalary(1000);
+            employee.DisplayStatus();
+            employee.SetName("James ");
+            employee.DisplayStatus();
+
+            //employee.SetName()
+        }
+        #endregion
         static void InitializeCar()
         {
             Car car = new Car();

@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="CSharpOOP.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
