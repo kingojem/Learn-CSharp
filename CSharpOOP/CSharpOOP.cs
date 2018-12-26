@@ -15,7 +15,7 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
 
-            InitializeEmployee();
+            InitializeStandardSavingsAccount();
         }
         #region This is the INItialization of the external employee class
         static void InitializeEmployee()
@@ -24,7 +24,8 @@ namespace CSharpOOP
             employee.DisplayStatus();
             employee.IncreaseSalary(1000);
             employee.DisplayStatus();
-            employee.SetName("James ");
+            employee.Name = "james";
+            employee.Salary = 45567;
             employee.DisplayStatus();
 
             //employee.SetName()
@@ -64,6 +65,15 @@ namespace CSharpOOP
             //SavingsAccount.SetIntrestAcquired(0.454);
             SavingsAccount savingsAccount1 = new SavingsAccount(678977.4555);
             Console.WriteLine("Interest ADDition To this is : {0}", SavingsAccount.GetInterestAcquired());
+        }
+        static void InitializeStandardSavingsAccount()
+        {
+            StandardSavingsAccount standardSavingsAccount = new StandardSavingsAccount(3456.976);
+            Console.WriteLine("Interest ADDition To this is : {0}", StandardSavingsAccount.InterestRate);
+
+            StandardSavingsAccount standardSavingsAccount1 = new StandardSavingsAccount(64324.34);
+            Console.WriteLine("Interest ADDition To this is : {0}", StandardSavingsAccount.InterestRate);
+
         }
         #region This Initialize The static class, also know as utility class, calls static data fields AND methods
         static void InitializeStaticClass()
@@ -127,6 +137,31 @@ namespace CSharpOOP
 
        
         
+    }
+
+
+    class StandardSavingsAccount
+    {
+        private double amountSavedByUser;
+        private static double currentInterest;
+        public double balance { get => amountSavedByUser ; set => amountSavedByUser = value; }
+
+        public StandardSavingsAccount(double balance)
+        {
+            this.balance = balance;
+            Console.WriteLine($"Your Balance: {this.balance}");
+
+        }
+        static StandardSavingsAccount()
+        {
+            //Console.WriteLine("The Default Interest Rate is");
+            currentInterest = 0.654;
+        }
+        public static double InterestRate
+        {
+            get => currentInterest;
+            set => currentInterest = value;
+        }
     }
     #endregion
 }
