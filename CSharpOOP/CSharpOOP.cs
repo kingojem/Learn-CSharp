@@ -20,14 +20,12 @@ namespace CSharpOOP
         #region This is the INItialization of the external employee class
         static void InitializeEmployee()
         {
-            Employee employee = new Employee("Emmanuel",2345,765f);
-            employee.DisplayStatus();
-            employee.IncreaseSalary(1000);
-            employee.DisplayStatus();
-            employee.SetName("James ");
+            Employee employee = new Employee("emmanuel",456,23457);
             employee.DisplayStatus();
 
-            //employee.SetName()
+            employee.ID = 56;
+            
+            employee.DisplayStatus();
         }
         #endregion
         static void InitializeCar()
