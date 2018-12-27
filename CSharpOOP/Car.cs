@@ -78,4 +78,14 @@ namespace CSharpOOP
 
 
     }
+
+    public interface IEmployee
+    {
+        void Employee();
+    }
+
+    public interface ICustomer
+    {
+        void Customer();
+    }
 }

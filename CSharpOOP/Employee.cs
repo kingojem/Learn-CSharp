@@ -12,38 +12,9 @@ using static System.DateTime; // this is optional
 
 namespace CSharpOOP
 {
-    class Employee { 
-
-
-        #region Fields
-        private string empName ;
-        private int empID;
-        private float empSalary;
-        #endregion
-
-        #region Properties
-        public string Name
-        { get => empName;
-            set
-            {
-                if(value.Length > 10)
-                    Console.WriteLine("Invalid Name \n Name Must Not Exceed 10 Characters");
-                empName = value;
-            }
-        }
-        public int ID { get => empID; set=>empID = value; }
-        public float Salary { get=>empSalary; set=> empSalary = value; }
-        #endregion
-        public Employee() { }
-        public Employee(string empName) : this(empName, 0, 0f) { }
-        public Employee(int empID) : this("", empID, 0f) { }
-        public Employee(string empName , int empID, float empSalary)
-        {
-            Name= empName;
-            Salary = empSalary;
-            ID = empID;
-        }
-
+   public partial class Employee
+   { 
+        #region Methods()
         public void IncreaseSalary(float increase)
         {
             Console.WriteLine("Your Salary Increased");
@@ -53,9 +24,11 @@ namespace CSharpOOP
         {
             Console.WriteLine($"{empName} With Employee ID : {empID} \n Current Salary: {empSalary}");
         }
+        #endregion
 
+
+        #region Encapsulation using Accesor and Mutator Method(commented out)
         // Encapspulation using the Accessor and Mutator Methods
-       
         //public string GetName() => empName;
         //public void SetName(string name)
         //{
@@ -68,7 +41,41 @@ namespace CSharpOOP
         ///<summary>
         ///this Comment uses the traditional Accessor and Mutator Method, Commonly Called Getter and Setter Method.
         ///</summary>
+        #endregion
+   }
+
+    public class Person : Employee
+    {
+        public int age { get; set; } = 1;
+        public string address { get; set; }
+        public Employee Name { get; set; } = new Employee("");
+
+        public Person() { }
+        public Person(Employee employee) : this(employee, 0, "") { }
+        public Person(Employee employee, int age, string address)
+        {
+            Name = employee;
+            this.age = age;
+            this.address = address;
+
+        }
+
+        static Person()
+        {
+            Console.WriteLine("Who Are You");
+        }
+
+        public void PrintDetails()
+        {
+            Console.WriteLine("Name: {0} \n Age: {1} \n Address: {2}", Name, age, address);
+        }
+    }
+    public partial class PartialTest : IEmployee
+    {
+        public void Customer()
+        {
+
+        }
     }
 
-   
 }

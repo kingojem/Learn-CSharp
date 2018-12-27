@@ -47,6 +47,7 @@
     <Compile Include="Car.cs" />
     <Compile Include="CSharpOOP.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="Employee_Details_InputValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

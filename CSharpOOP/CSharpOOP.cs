@@ -15,7 +15,8 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
 
-            InitializeStandardSavingsAccount();
+            
+            Console.ReadLine();
         }
         #region This is the INItialization of the external employee class
         static void InitializeEmployee()
@@ -29,6 +30,16 @@ namespace CSharpOOP
             employee.DisplayStatus();
 
             //employee.SetName()
+        }
+
+        static void InitializePerson() 
+        {
+            Person person = new Person();
+            person.Name = new Employee("Emmanuel");
+            person.Name.DisplayStatus();
+            person.PrintDetails();
+
+
         }
         #endregion
         static void InitializeCar()
