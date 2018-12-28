@@ -74,18 +74,10 @@ namespace CSharpOOP
         }
 
         public void DisplayMotorCycleInfo() => Console.WriteLine($"The MotorCYcle Brand is {brand}\n Default Speed: {speed} \n Your Intencity {driverIntensity}");
+
         
 
-
     }
 
-    public interface IEmployee
-    {
-        void Employee();
-    }
-
-    public interface ICustomer
-    {
-        void Customer();
-    }
+    
 }

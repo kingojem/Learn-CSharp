@@ -70,11 +70,11 @@ namespace CSharpOOP
             Console.WriteLine("Name: {0} \n Age: {1} \n Address: {2}", Name, age, address);
         }
     }
-    public partial class PartialTest : IEmployee
+    public partial class PartialTest 
     {
-        public void Customer()
+        partial void DisplayMessage()
         {
-
+            Console.WriteLine("A Patial Method must be Decleard before Implementation");
         }
     }
 

@@ -43,11 +43,13 @@ namespace CSharpOOP
 
     }
 
-    public partial class PartialTest : ICustomer
+    public partial class PartialTest 
     {
-        public void Employee()
+        partial void DisplayMessage();
+        public static void Display()
         {
-
+            PartialTest partial = new PartialTest();
+            partial.DisplayMessage();
         }
     }
 

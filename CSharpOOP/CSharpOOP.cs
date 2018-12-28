@@ -15,7 +15,8 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
 
-            
+            PartialTest PartialTest = new PartialTest();
+            PartialTest.Display();
             Console.ReadLine();
         }
         #region This is the INItialization of the external employee class
