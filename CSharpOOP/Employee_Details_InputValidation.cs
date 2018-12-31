@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CSharpOOP
 {
-    public  partial class Employee
+    #region Methods That Defines The Input Type, Validation of the employee (This is a Partial Class)
+    public partial class Employee
     {
         #region Fields
         private string empName;
@@ -42,7 +43,9 @@ namespace CSharpOOP
         #endregion
 
     }
+    #endregion
 
+    #region A Partial Class Test and Sample
     public partial class PartialTest 
     {
         partial void DisplayMessage();
@@ -52,5 +55,6 @@ namespace CSharpOOP
             partial.DisplayMessage();
         }
     }
+    #endregion
 
 }

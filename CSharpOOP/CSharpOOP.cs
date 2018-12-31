@@ -15,11 +15,10 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
 
-            PartialTest PartialTest = new PartialTest();
-            PartialTest.Display();
+            InitializeWorker();
             Console.ReadLine();
         }
-        #region This is the INItialization of the external employee class
+        #region This is the INItialization of the external Employee File(Including Employee and Person Class)
         static void InitializeEmployee()
         {
             Employee employee = new Employee("Emmanuel",2345,765f);
@@ -43,6 +42,8 @@ namespace CSharpOOP
 
         }
         #endregion
+
+        #region This is the INItialization of the external Car File (Including The Car and Motorcycle Class)
         static void InitializeCar()
         {
             Car car = new Car();
@@ -64,12 +65,16 @@ namespace CSharpOOP
                 }
             }
         }
+       
         static void InitializeMotorCycle()
         {
             Motorcycle motorcycle = new Motorcycle();
             motorcycle.DisplayMotorCycleInfo();
             motorcycle.PopAWheely();
         }
+        #endregion
+
+        #region  Understanding The Concept OF STAtic Data(Initialization)
         static void InitializeSavingsAccount()
         {
             SavingsAccount savingsAccount = new SavingsAccount(4322.33);
@@ -87,6 +92,8 @@ namespace CSharpOOP
             Console.WriteLine("Interest ADDition To this is : {0}", StandardSavingsAccount.InterestRate);
 
         }
+        #endregion
+
         #region This Initialize The static class, also know as utility class, calls static data fields AND methods
         static void InitializeStaticClass()
         {
@@ -96,6 +103,45 @@ namespace CSharpOOP
             WriteLine(StaticUndestanding.PrintName() +"\n" );
         }
         #endregion
+
+
+
+        #region Initializing the Inheritance
+        static void InitializeVehicle()
+        {
+            Vehicle vehicle = new Vehicle
+            {
+                CurrentSpeed = 45,
+            };
+            
+            vehicle.DisplaySpeedometer();
+            Console.WriteLine();
+
+            Ferari ferari = new Ferari()
+            {
+                CurrentSpeed = 560,
+                
+            };
+            ferari.DisplaySpeedometer();
+            ferari.BreakPadOil();
+        }
+
+        static void InitializeWorker()
+        {
+            FactoryWorker worker = new FactoryWorker()
+            {
+                Age = 23,
+                Salary = 10_000,
+                Name = "Shawn Mendes",
+                HourlyRate = 200,
+                Id = 23674
+
+            };
+            worker.DisplayStatus();
+            worker.GetBonus(3000);
+        }
+        #endregion
+
     }
     #region Understanding The Concept OF STAtic Data,MEthods etc.. ; Making A Bank Savings Model
     class SavingsAccount
@@ -176,4 +222,9 @@ namespace CSharpOOP
         }
     }
     #endregion
+
+    
+
+
+
 }

@@ -65,7 +65,7 @@ namespace CSharpBasics{
     class Program
     {
        
-       static void Main( string [] args)
+        static void Main( string [] args)
        {
             Console.Title = "King Ojem";
 
@@ -166,6 +166,7 @@ namespace CSharpBasics{
             Console.WriteLine($"Length is: {names?.Length ?? 0}");
 
         }
+
         #region Work in The Calling and Manipulation Of structures(commonly called struct)
         public static void UserInput()
             {

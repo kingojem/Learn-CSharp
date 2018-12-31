@@ -12,8 +12,9 @@ using static System.DateTime; // this is optional
 
 namespace CSharpOOP
 {
-   public partial class Employee
-   { 
+    #region Methods That Defines and Or Controls or Establish Employee activities(This is A Partial Class)
+    public partial class Employee
+    { 
         #region Methods()
         public void IncreaseSalary(float increase)
         {
@@ -42,21 +43,33 @@ namespace CSharpOOP
         ///this Comment uses the traditional Accessor and Mutator Method, Commonly Called Getter and Setter Method.
         ///</summary>
         #endregion
-   }
+    }
+    #endregion
 
+    #region A Partial Class Test and Sample
+    public partial class PartialTest
+    {
+        partial void DisplayMessage()
+        {
+            Console.WriteLine("A Patial Method must be Decleard before Implementation");
+        }
+    }
+    #endregion
+
+    #region Basic Inheritance(Very weak) And Parial Class Test(for Understanding)
     public class Person : Employee
     {
-        public int age { get; set; } = 1;
-        public string address { get; set; }
-        public Employee Name { get; set; } = new Employee("");
+        public int Age { get; set; } = 1;
+        public string Address { get; set; }
+        public new  Employee Name { get; set; } = ; // Using the new Keyword, This is called method hiding
 
         public Person() { }
         public Person(Employee employee) : this(employee, 0, "") { }
         public Person(Employee employee, int age, string address)
         {
             Name = employee;
-            this.age = age;
-            this.address = address;
+            Age = age;
+            Address = address;
 
         }
 
@@ -67,15 +80,9 @@ namespace CSharpOOP
 
         public void PrintDetails()
         {
-            Console.WriteLine("Name: {0} \n Age: {1} \n Address: {2}", Name, age, address);
+            Console.WriteLine("Name: {0} \n Age: {1} \n Address: {2}", Name, Age, Address);
         }
     }
-    public partial class PartialTest 
-    {
-        partial void DisplayMessage()
-        {
-            Console.WriteLine("A Patial Method must be Decleard before Implementation");
-        }
-    }
+    #endregion
 
 }
