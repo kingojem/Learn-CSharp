@@ -151,7 +151,7 @@ namespace CSharpOOP
         public Ferari(int max):base(max) { }
         public new void SomethingFun()
         {
-            string thatsright = "Thats Right";
+            //string thatsright = "Thats Right";
             base.SomethingFun();
            
         }

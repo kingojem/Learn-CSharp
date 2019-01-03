@@ -6,41 +6,57 @@ using System.Threading.Tasks;
 
 namespace CSharpOOP
 {
-    class Worker
+    abstract partial class Worker
     {
-        #region Fields
-        private readonly int ssn = 678;
-        #endregion
-        #region automatic Properties
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public int Id { get; set; } 
-        public int Salary { get; set; }
-        public int SSN { get => ssn; }
-        #endregion
-
-        #region Constructors()
-        public Worker() { }
-        public Worker( string name, int age, int id, int salary)
-        {
-            Name = name;
-            Age = age;
-            Id = id;
-            Salary = salary;
-            
-        }
-        //public Worker(int ssn) { }
-        #endregion
-
-        #region Methods and Logic()
-        public void DisplayStatus()
+        /// <summary>
+        /// This is A Partial Class with all Fields and Constructor Found In A File Called Inheritance_Ploymorphism_2 Under The same Assembly or Namespace
+        /// </summary>
+       #region Methods and Logic()
+        public virtual void DisplayStatus()
         {
             Console.WriteLine($"Name: {Name} \n Age: {Age} \n ID: {Id} \n Salary: {Salary} \n Social Security Number {SSN}");
         }
         public virtual void GetBonus(int bonus)
         {
             Salary += bonus;
-            Console.WriteLine("New Salary: {0}",Salary);
+            Console.WriteLine("Your Bonus: {0} \nNew Salary: {1}",bonus,Salary);
+        }
+        public void AllowPromotion(Worker worker) => GivePromotion(worker);
+        private void GivePromotion(Worker worker)
+        {
+            Console.WriteLine($"Congratulation {worker.Name} You Have Been Promoted !!");
+
+            if(worker is Marketer marketer)
+            {
+                //Console.WriteLine($"You Made {((Marketer)worker).NumberOfSales}");   The Old Code
+                Console.WriteLine(value:$"You Made {marketer.NumberOfSales}"); // Simplified as Follows
+                Console.WriteLine();
+            }
+            if(worker is FactoryWorker factoryWorker)
+            {
+                // Console.WriteLine($"The Stock Options Currently is: {((FactoryWorker)worker).StockOptions}"); This Can Be simplified
+                Console.WriteLine(value: $"The Stock Options Currently is: {factoryWorker.StockOptions}");
+            }
+        }
+
+        /// <summary>
+        /// The Private Function Give Promotion can be thus simplified
+        /// </summary>
+        /// 
+        
+        public void DisplayWorkerType(Worker worker)
+        {
+            if(worker == null)
+                Console.WriteLine("Worker Not Found");
+            else
+                switch (worker)
+                {
+                    case FactoryWorker factoryWorker:
+                        Console.WriteLine("You are A {0} in this Organisation",factoryWorker.WorkerType.ToString());
+                        Console.WriteLine($"{factoryWorker.Name} is a {factoryWorker.ToString()}");
+
+                        break;
+                }
         }
         #endregion
     }
@@ -49,29 +65,40 @@ namespace CSharpOOP
     {
         #region Automatic Properties
         public int HourlyRate { get; set; }
+        public int StockOptions { get; set; }
         #endregion
 
         #region Constructors()
         public FactoryWorker(): base() { }
-        public FactoryWorker(string name, int age, int id, int salary,int hourlyRate): base(name, age, id, salary)
+        public FactoryWorker(string name, int age, int id, int salary,int hourlyRate): base(name, age, id, salary,null)
         {
             HourlyRate = hourlyRate;
         }
         #endregion
 
         #region Methods and Logic
-        public new void DisplayStatus()
+        public override void DisplayStatus()
         {
-            Console.WriteLine($"Name: {Name} \n Age: {Age} \n ID: {Id} \n Salary: {Salary} \n Social Security Number: {SSN} \n Hourly Rate: {HourlyRate}");
+            base.DisplayStatus();
+            Console.WriteLine($"Hourly Rate: {HourlyRate}");
 
         }
-        
+        public override  void GetBonus(int bonus)
+        {
+            Random r = new Random();
+             
+            StockOptions += r.Next(10);
+            Console.WriteLine("Stock Options {0}", StockOptions);
+            base.GetBonus(bonus);
+        }
+
+
         #endregion
     }
 
     class Marketer : FactoryWorker
     {
-        #region Aultomatic Properties
+        #region Automatic Properties
         public int NumberOfSales { get; set; }
         #endregion
         public Marketer() { }

@@ -61,7 +61,7 @@ namespace CSharpOOP
     {
         public int Age { get; set; } = 1;
         public string Address { get; set; }
-        public new  Employee Name { get; set; } = ; // Using the new Keyword, This is called method hiding
+        public new  Employee Name { get; set; }  // Using the new Keyword, This is called method hiding
 
         public Person() { }
         public Person(Employee employee) : this(employee, 0, "") { }

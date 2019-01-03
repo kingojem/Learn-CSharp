@@ -15,8 +15,7 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
 
-            InitializeWorker();
-            Console.ReadLine();
+           Console.ReadLine();
         }
         #region This is the INItialization of the external Employee File(Including Employee and Person Class)
         static void InitializeEmployee()
@@ -128,17 +127,61 @@ namespace CSharpOOP
 
         static void InitializeWorker()
         {
-            FactoryWorker worker = new FactoryWorker()
+            
+            FactoryWorker factoryworker = new FactoryWorker()
             {
                 Age = 23,
                 Salary = 10_000,
                 Name = "Shawn Mendes",
                 HourlyRate = 200,
-                Id = 23674
+                Id = 23674,
+                
+                
 
             };
-            worker.DisplayStatus();
-            worker.GetBonus(3000);
+            factoryworker.WorkerType = factoryworker;
+            factoryworker.DisplayStatus();
+            factoryworker.GetBonus(3000);
+            //factoryworker.AllowPromotion(factoryworker);
+            factoryworker.DisplayWorkerType(factoryworker);
+
+            
+            
+            
+            //Marketer marketer = new Marketer
+            //{
+            //    Name = "jAMES dADA",
+            //    NumberOfSales = 345,
+            //    Age = 34,
+            //};
+            //marketer.DisplayStatus();
+            //marketer.GetBonus(3432);
+            
+        }
+        static void InitailizeShapes()
+        {
+            Shape[] shapes = { new Circle("James"), new Hexagon(), new Circle("Peter"), new Hexagon("Tolu") };
+            
+            foreach( Shape e in shapes)
+            {
+                e.Draw();
+            }
+        }
+        #endregion
+
+
+        #region UUNderstandig fully The Need For OVerrides
+
+        static void Initiallizesomeboody()
+        {
+            Somebody somebody = new Somebody()
+            {
+                Name = "Emmanuel",
+                Age = 20,
+                LastName = "Ojo"
+            };
+            Console.WriteLine(somebody.ToString());
+
         }
         #endregion
 
