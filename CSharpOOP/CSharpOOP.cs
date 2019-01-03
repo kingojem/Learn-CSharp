@@ -14,8 +14,8 @@ namespace CSharpOOP
     {
         static void Main(string[] args)
         {
-
-           Console.ReadLine();
+            Initiallizesomebody();
+            Console.ReadLine();
         }
         #region This is the INItialization of the external Employee File(Including Employee and Person Class)
         static void InitializeEmployee()
@@ -172,7 +172,7 @@ namespace CSharpOOP
 
         #region UUNderstandig fully The Need For OVerrides
 
-        static void Initiallizesomeboody()
+        static void Initiallizesomebody()
         {
             Somebody somebody = new Somebody()
             {
@@ -181,6 +181,13 @@ namespace CSharpOOP
                 LastName = "Ojo"
             };
             Console.WriteLine(somebody.ToString());
+            Somebody somebody1 = new Somebody("james", "Ojo", 20);
+            Console.WriteLine();
+            Console.WriteLine(somebody1.ToString());
+
+           WriteLine("Somebody = Somebody1?: {0}", object.Equals(somebody,somebody1));
+            WriteLine("Somebody = Somebody1?: {0}", object.ReferenceEquals(somebody, somebody1));
+
 
         }
         #endregion

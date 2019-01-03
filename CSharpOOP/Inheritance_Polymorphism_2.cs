@@ -96,7 +96,7 @@ namespace CSharpOOP
 
         public override string ToString()
         {
-            return $"[First Name : {Name} \n Last Name : {LastName}\n Age : {Age}]";
+            return $" First Name : {Name} \n Last Name : {LastName}\n Age : {Age}";
         }
 
         public override bool Equals(object obj)
