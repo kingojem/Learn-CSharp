@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlClient;
 using static System.Console;  //  THIS dEFINES CONSOLE, GIVES ME THE ABILITY TO CALL METHODS LIKE WRITELINE AND READLINE DIRECTLY, FOR A MORE CLEAN CODEBASE
-using static System.DateTime;
+
+//Custom Namespace Importation
+
+
 
 
 namespace CSharpOOP
@@ -14,7 +16,40 @@ namespace CSharpOOP
     {
         static void Main(string[] args)
         {
-            Initiallizesomebody();
+            //InitializeCustomException();
+            InterfaceUnderstanding();
+            void InterfaceUnderstanding()
+            {
+                //Understanding The Concept Of Interface, Interface allow a class or struct to have a behavior, this are highly polymorphic
+
+
+                ///<summary>
+                ///Te Interfaece Iclonable Ships with The Dot Net Framework and Defines a Method Called Clone; all Program Under The dot Net assemblies can Inherit and Model This 
+                ///Behavior
+                /// </summary>
+
+                OperatingSystem operatingSystem = new OperatingSystem(PlatformID.Unix, new Version());
+                SqlConnection sqlConnection = new SqlConnection();
+                string Name = "Hello";
+
+                Clone(Name);
+                Clone(operatingSystem);
+                Clone(sqlConnection);
+
+                 void Clone(ICloneable cloneable)
+                 {
+                    var theClone = cloneable.Clone();
+                    Console.WriteLine("Your Cloned Object is: {0}",theClone.GetType().Name);
+                 }
+
+
+
+            }
+
+
+
+
+
             Console.ReadLine();
         }
         #region This is the INItialization of the external Employee File(Including Employee and Person Class)
@@ -192,6 +227,152 @@ namespace CSharpOOP
         }
         #endregion
 
+
+        #region Understanding Delegates
+       
+        static void InitializeLearnDelegate()
+        {
+            LearnDelegate learnDelegate = new LearnDelegate
+            {
+                Name = "Emmanuel",
+                
+            };
+            WriteLine(learnDelegate.Name.ToString());
+            string name = Console.ReadLine();
+
+            /// This Delegate Points to a  static function found 
+            // in tohe LearnDelegate class Called simple function, this fully explain the initialization 
+            //of calling a Delegate
+            SimpleFunctionDelegate simpleFunctionDelegate = new SimpleFunctionDelegate(LearnDelegate.Simplefunction);
+            simpleFunctionDelegate(name);
+            // Delegate Call....  end
+
+
+        }
+
+        static void InitializePilots()
+        {
+            #region Create Pilots Object or Instances
+            Pilots pilot1 = new Pilots()
+            {
+                Name = "Emmanuel",
+                ID = 564,
+                Experience = 11,
+                Marital_Status = false
+
+            };
+            Pilots pilot2 = new Pilots();
+            pilot2.Experience = 6;
+            pilot2.Name = "Peter";
+            pilot2.Marital_Status = true;
+            Pilots pilot3 = new Pilots(23, "Jamiu", 13, null);
+            #endregion
+
+            #region Assemble TOtal List Of Pilots
+            // Create A LIst Of Pilots
+
+            List<Pilots> P = new List<Pilots>();
+            P.Add(pilot1);
+            P.Add(pilot2);
+            P.Add(pilot3);
+            // Pilots.Promoteworker(P); // This Has an Hard Coded Logic and its not flexible, especially if this a framework that assist other developers promote thier workers
+
+            // Initializing My Delegate
+            #endregion
+            #region Delegate Call, Logic And Function Call (In a Real life Framework, I can ensure this or this would be done by the tird party calling my code)
+            Pilots.IsPromotable isPromotable = new Pilots.IsPromotable(PromoteWorker);
+
+            //This is Now The User Utilized Function That Ensures the Kind Of lOgic That is Needed for Thier bussiness
+
+            bool PromoteWorker(Pilots pilots)
+            {
+                //The Logic
+
+                if(pilots.Experience >= 10)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+                
+            }
+
+            Pilots.PromotePilots(P, isPromotable);
+
+            #endregion
+
+            //Function Call
+
+        }
+
+        #endregion
+
+        #region Understanding Exception Handling
+
+        static void InitializeException_Handling()
+        {
+            Console.WriteLine("Please Input Your Name");
+            var Input = Console.ReadLine();
+            Console.WriteLine("Please Input Your Age");
+            var Input1 = int.TryParse(Console.ReadLine(), out int j) ;
+            //Console.WriteLine(" Name = {0}", Input);
+
+            Exception_Handling exception_Handling = new Exception_Handling();
+            #region This Explains The Concept of Inner Exception
+            try
+            {
+                try
+                {
+                    exception_Handling.Name = Input;
+                    exception_Handling.Age = j;
+
+                }
+                catch (Exception e)
+                {
+                    string path = @"C:\Users\King Ojem\source\repos\ProjectTest\CSharpOOP\Log.txt";
+                    if (File.Exists(path))
+                    {
+                        StreamWriter streamWriter = new StreamWriter(path);
+
+                        streamWriter.Write($"Type Of Error: {e.GetType().Name} ; ");
+                        streamWriter.Write($"Error Message : {e.Message} ; ");
+                        foreach (DictionaryEntry de in e.Data)
+                        {
+                            streamWriter.Write($"Time : {de.Value} ; ");
+                        }
+
+                        streamWriter.Write($"Get Help : {e.HelpLink} ; ");
+                        streamWriter.Close();
+
+                        Console.WriteLine("There Was an Error \n Please Try Again");
+                    }
+                    else
+                    {
+                        throw new FileNotFoundException(Path.GetFileName(path) + @"Located  @ C:\Users\King Ojem\source\repos\ProjectTest\CSharpOOP\ " + " Not Found!!", e);
+
+                    }
+                }
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine("Error ! : {0}", ex.InnerException.Message);
+                Console.WriteLine("Error Log Write Failed : {0}",ex.InnerException.Message);
+            }
+
+            #endregion
+
+
+        }
+
+        static void InitializeCustomException()
+        {
+            throw new MyCustomException();
+        }
+        #endregion
+
     }
     #region Understanding The Concept OF STAtic Data,MEthods etc.. ; Making A Bank Savings Model
     class SavingsAccount
@@ -238,7 +419,7 @@ namespace CSharpOOP
         public static string name;
         
         
-        public static void PrintTime() =>WriteLine(Now.ToShortTimeString());
+        public static void PrintTime() =>WriteLine(DateTime.Now.ToShortTimeString());
         public static string PrintName() => name;
         public static void PrintDate() => WriteLine();
 

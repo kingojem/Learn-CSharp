@@ -19,7 +19,8 @@ using System.Windows.Forms;
 /// </summary>
 
 
-namespace CSharpBasics{
+namespace ProjectTest
+{
 
     #region Calling & Creating Enums, Changing Data Type etc
         enum Gender : byte{
@@ -66,7 +67,7 @@ namespace CSharpBasics{
     {
        
         static void Main( string [] args)
-       {
+        {
             Console.Title = "King Ojem";
 
             //(string FirstName, int Age, char Sex, bool? Likes) EmployeeDetails = ("emmanuel", 20, 'm', null);
@@ -81,8 +82,7 @@ namespace CSharpBasics{
 
             //Console.WriteLine(boo.name2);
 
-
-
+           
 
             //Console.WriteLine("Sending Person Details BY Value");
             //Person james = new Person("tolu", 15);

@@ -79,7 +79,7 @@ namespace CSharpOOP
 
         
     }
-
+        
     class Somebody
     {
         public string Name { get; set; } = "";
