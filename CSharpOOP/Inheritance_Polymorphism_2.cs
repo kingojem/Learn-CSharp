@@ -65,19 +65,77 @@ namespace CSharpOOP
         
         //public abstract void Size();
     }
-    class Circle: Shape
+    class Circle:  Shape
     {
         public Circle (string name) : base(name) { }
-        public override void Draw() => Console.WriteLine($" Drawing {PetName} The Cicle ");
+        public override void Draw()
+        {
+            Console.WriteLine($" Drawing {PetName} The Cicle ");
+            Console.WriteLine();
+        }
+        
         
     }
-    class Hexagon : Shape
+    class Hexagon : Shape, IPointy
     {
-        public Hexagon(string name= "No Name") : base(name) { }
 
-        public override void Draw() => Console.WriteLine($" Drawing {PetName} The Hexagon");
+        public Hexagon(string name = "No Name") : base(name) { }
 
+        public override void Draw()
+        {
+            Console.WriteLine($" Drawing {PetName} The Hexagon");
+            Console.WriteLine();
+        }
         
+       public byte Points
+        {
+            get { return 6; }
+        }
+        
+    }
+    class PolyGon : Shape, IPointy, IDraw
+    {
+        public PolyGon(string name = "No Name") : base(name) { }
+
+        public override void Draw()
+        {
+            Console.WriteLine($" Drawing {PetName} The Hexagon");
+            Console.WriteLine();
+        }
+
+        byte IDraw.Points
+        {
+            get { return 61; }
+        }
+        public byte Points
+        {
+            get { return 6; }
+        }
+
+        public void Draw3D()
+        {
+            Console.WriteLine($"Drawing This {PetName.GetType()} In 3D  \n Can Only Be viewed with a lens");
+        }
+    }
+
+    class ThreeDCircle : Circle, IDraw
+    {
+
+        public ThreeDCircle(string name) : base(name) { }
+
+        public override void Draw()
+        {
+            Console.WriteLine("This is A 3D Circle");
+        }
+        
+        public void Draw3D()
+        {
+            Console.WriteLine($"Drawing This {PetName} In 3D  \n Can Only Be viewed with a lens");
+        }
+        public byte Points
+        {
+            get { return 6; }
+        }
     }
         
     class Somebody

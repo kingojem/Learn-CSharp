@@ -17,7 +17,12 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
             //InitializeCustomException();
-            InterfaceUnderstanding();
+            //InitailizeShapes();
+            //Garage.IterateItemInGarage();
+            Points.Initalize();
+            
+
+            #region This is an Intro to Interface and it does not do anyting but make u understand that an interface can ;work on any class in a namespace or assembly
             void InterfaceUnderstanding()
             {
                 //Understanding The Concept Of Interface, Interface allow a class or struct to have a behavior, this are highly polymorphic
@@ -45,6 +50,7 @@ namespace CSharpOOP
 
 
             }
+            #endregion
 
 
 
@@ -140,7 +146,7 @@ namespace CSharpOOP
 
 
 
-        #region Initializing the Inheritance
+        #region Initializing the Inheritance and The Concept Of Multiple Inheritance Using Interfaces
         static void InitializeVehicle()
         {
             Vehicle vehicle = new Vehicle
@@ -195,11 +201,33 @@ namespace CSharpOOP
         }
         static void InitailizeShapes()
         {
-            Shape[] shapes = { new Circle("James"), new Hexagon(), new Circle("Peter"), new Hexagon("Tolu") };
-            
-            foreach( Shape e in shapes)
+            Shape[] shapes = { new Circle("James"), new Hexagon(), new Circle("Peter"), new Hexagon("Tolu"), new ThreeDCircle("James"), new PolyGon() };
+
+            foreach (Shape e in shapes)
             {
                 e.Draw();
+
+                if (e is IPointy pointy)
+                {
+                    Console.WriteLine("The Number Of Points {0}", pointy.Points);
+                }
+                else
+                {
+                    Console.WriteLine("This Shape Has No Points");
+                }
+
+                if (e is IDraw draw)
+                {
+
+                    DrawA3DObject((IDraw)e);
+
+                }
+            }
+
+            void DrawA3DObject(IDraw draw)
+            {
+                Console.WriteLine("This is A 3D Object");
+                draw.Draw3D();
             }
         }
         #endregion

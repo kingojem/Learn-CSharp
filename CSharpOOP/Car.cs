@@ -31,11 +31,21 @@ namespace CSharpOOP
         }
         
     }
+
+    
+    
+ 
+    
     class Car
     {
         public string brand;
         public int speed;
-
+        public Car() { }
+        public Car(string brand = "", int speed = 0)
+        {
+            this.brand = brand;
+            this.speed = speed;
+        }
         public void DisplayCurrentspeed() => Console.WriteLine("Your Current speed {0}MPH",speed);
         public void SpeedUp(int accelerate) => speed += accelerate;
 
@@ -44,6 +54,9 @@ namespace CSharpOOP
             Radio.TurnRadioON(Switch);
         }
     }
+    #endregion
+    
+
     class Motorcycle
     {
         public string brand;
@@ -78,9 +91,6 @@ namespace CSharpOOP
         
 
     }
-    #endregion
-
-
     #region Understanding The Concept of Inheritance
     class Vehicle
     {
