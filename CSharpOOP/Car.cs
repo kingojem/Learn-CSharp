@@ -38,13 +38,19 @@ namespace CSharpOOP
     
     class Car
     {
-        public string brand;
-        public int speed;
+        private string brand;
+        private int speed;
+        public string Brand { get => brand; set => brand = value; }
+        public int Speed { get => speed; set => speed = value; }
         public Car() { }
+        public override string ToString()
+        {
+           return $"This Is A Car; Brand Name: {Brand}; Speed: {Speed}";
+        }
         public Car(string brand = "", int speed = 0)
         {
-            this.brand = brand;
-            this.speed = speed;
+            Brand = brand;
+           Speed = speed;
         }
         public void DisplayCurrentspeed() => Console.WriteLine("Your Current speed {0}MPH",speed);
         public void SpeedUp(int accelerate) => speed += accelerate;

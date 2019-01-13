@@ -53,7 +53,7 @@ namespace CSharpOOP
 
             foreach( Car c in garage)
             {
-                Console.WriteLine($"{c.brand} is at {c.speed} speed");
+                Console.WriteLine($"{c.Brand} is at {c.Speed} speed");
             }
             
         }

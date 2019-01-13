@@ -19,7 +19,8 @@ namespace CSharpOOP
             //InitializeCustomException();
             //InitailizeShapes();
             //Garage.IterateItemInGarage();
-            Points.Initalize();
+            //Points.Initalize();
+            Override_Quickie.InitializeCaller();
             
 
             #region This is an Intro to Interface and it does not do anyting but make u understand that an interface can ;work on any class in a namespace or assembly
@@ -87,9 +88,9 @@ namespace CSharpOOP
         static void InitializeCar()
         {
             Car car = new Car();
-            car.brand = "Toyota";
-            Console.Title = car.brand;
-            car.speed = 10;
+            car.Brand = "Toyota";
+            Console.Title = car.Brand;
+            car.Speed = 10;
             car.DisplayCurrentspeed();
             car.TurnRadioON(true);
 
@@ -97,7 +98,7 @@ namespace CSharpOOP
             {
                 car.SpeedUp(5);
                 car.DisplayCurrentspeed();
-                if (car.speed > 65)
+                if (car.Speed > 65)
                 {
                     Console.WriteLine("Moving Too Fast! \n Slow Down");
                     break;
