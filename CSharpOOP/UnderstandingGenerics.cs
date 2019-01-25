@@ -227,4 +227,92 @@ namespace CSharpOOP
         }
         #endregion
     }
+
+    class Simple_Generic_Manipulation 
+    {
+        public static void Simple_Sort()
+        {
+            List<int> numbers = new List<int> { 3, 4, 5, 6, 23, 78 };
+            numbers.Sort();
+            foreach(int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine("Desending Order");
+            numbers.Reverse();
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+
+
+        }
+
+        public string Name { get; set; } = "";
+        public int ID { get; set; } = 0;
+        public double Salary { get; set; } = 0.0;
+
+        //private static int Compare(Simple_Generic_Manipulation x, Simple_Generic_Manipulation y)
+        //{
+        //    return x.Name.CompareTo(y.Name);
+        //}
+
+        public static void Complex_Sort()
+        {
+            //Comparison<Simple_Generic_Manipulation> comparison = new Comparison<Simple_Generic_Manipulation>(Compare);
+
+            List<Simple_Generic_Manipulation> simple_Generic_Manipulations = new List<Simple_Generic_Manipulation>
+            {
+                new Simple_Generic_Manipulation
+                {
+                    Name = "Emmanuel",
+                    ID = 3627,
+                    Salary = 344566.23233
+                },
+                new Simple_Generic_Manipulation
+                {
+                    Name = "zeter",
+                    ID = 46675,
+                    Salary = 86533.4566
+                },
+                new Simple_Generic_Manipulation
+                {
+                    Name = "tolu",
+                    ID = 82323,
+                    Salary = 34543.12356
+                }
+            };
+            Console.WriteLine("Number of Object {0}",simple_Generic_Manipulations.Count);
+            Console.WriteLine("Before Sorting");
+            foreach (Simple_Generic_Manipulation simple in simple_Generic_Manipulations)
+            {
+                Console.WriteLine(simple.Name);
+            }
+            simple_Generic_Manipulations.Sort((x,y) => x.ID.CompareTo(y.ID));
+
+            Console.WriteLine("After Sorting");
+            foreach(Simple_Generic_Manipulation simple in simple_Generic_Manipulations)
+            {
+                Console.WriteLine(simple.Name);
+            }
+        }
+        //public int CompareTo(Simple_Generic_Manipulation generic_Manipulation)
+        //{
+
+        //    /// int already inherits icomparable so theres no need doing all this below
+        //    /// a more simple method is required
+
+        //    //if (Salary > generic_Manipulation.Salary)
+        //    //    return 1;
+        //    //else if (Salary < generic_Manipulation.Salary)
+        //    //    return -1;
+        //    //else
+        //    //    return 0;
+
+        //    //the simple method required
+
+        //    return Salary.CompareTo(generic_Manipulation.Salary);
+        //}
+
+    }
 }

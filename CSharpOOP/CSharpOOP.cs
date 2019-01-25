@@ -20,8 +20,15 @@ namespace CSharpOOP
             //InitailizeShapes();
             //Garage.IterateItemInGarage();
             //Points.Initalize();
-            Override_Quickie.InitializeCaller();
-            
+            //Override_Quickie.InitializeCaller();
+            //InitializeChairOwners();
+            //UserControl1 userControl1 = new UserControl1();
+
+            //Simple_Generic_Manipulation.Simple_Sort();
+            //Simple_Generic_Manipulation.Complex_Sort();
+
+            Country.Lookup();
+
 
             #region This is an Intro to Interface and it does not do anyting but make u understand that an interface can ;work on any class in a namespace or assembly
             void InterfaceUnderstanding()
@@ -256,9 +263,14 @@ namespace CSharpOOP
         }
         #endregion
 
-
+        #region Understanding Anonymous Functions
+        static void InitializeChairOwners()
+        {
+            ChairOwners.CallOwners();
+        }
+        #endregion
         #region Understanding Delegates
-       
+
         static void InitializeLearnDelegate()
         {
             LearnDelegate learnDelegate = new LearnDelegate
@@ -308,6 +320,7 @@ namespace CSharpOOP
 
             // Initializing My Delegate
             #endregion
+
             #region Delegate Call, Logic And Function Call (In a Real life Framework, I can ensure this or this would be done by the tird party calling my code)
             Pilots.IsPromotable isPromotable = new Pilots.IsPromotable(PromoteWorker);
 

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpOOP
 {
@@ -115,6 +112,13 @@ namespace CSharpOOP
             
         }
 
+        /// <summary>
+        /// This is to note that all delegates have a method called GetInvocationList()
+        /// whic contains the name of the Method(type x, type y)
+        /// and Target(which tells us the type name of the object)
+        /// </summary>
+        /// <param name="pilots"></param>
+        /// <returns>True or False</returns>
 
         public delegate bool IsPromotable(Pilots pilots);
 
@@ -149,5 +153,36 @@ namespace CSharpOOP
         #endregion
     }
 
+    /// <summary>
+    /// Making An Anonymous Function
+    /// Also, We Can Make Use of Anonymous Function when we creating or using Events...
+    /// lets go ahead and make a simple wpf form
+    /// </summary>
 
+   public sealed class ChairOwners
+   {
+        public string Name { get; set; } = "";
+        public int ID { get; set; } = 0;
+
+        private static void GetList()
+        {
+            List<ChairOwners> chairOwners = new List<ChairOwners>()
+            {
+                new ChairOwners{Name = "Emmanuel", ID = 34},
+                new ChairOwners{Name= "toluwani",ID=345},
+                new ChairOwners{Name = "Emmanueleww", ID = 324},
+                new ChairOwners{Name= "toluwa2fgni",ID=34455},
+
+            };
+            ChairOwners owners = chairOwners.Find(delegate (ChairOwners chairs) 
+            {
+                return chairs.ID == 34; 
+            });
+            Console.WriteLine(owners.ID + "" + owners.Name);
+        }
+
+        public static void CallOwners() => GetList();
+        
+    }
+    
 }
