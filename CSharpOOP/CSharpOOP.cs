@@ -27,7 +27,20 @@ namespace CSharpOOP
             //Simple_Generic_Manipulation.Simple_Sort();
             //Simple_Generic_Manipulation.Complex_Sort();
 
-            Country.Lookup();
+            //Country.Lookup();
+
+            //LearnIndexer.Indexer();
+            //LearnIndexer.Index();
+
+            Console.WriteLine("***** Fun with Overloaded Operators *****\n");
+            // Make two points.  
+            LearnOverloading ptOne = new LearnOverloading(100, 100);
+            LearnOverloading ptTwo = new LearnOverloading(40, 40);
+            Console.WriteLine("ptOne = {0}", ptOne);
+            Console.WriteLine("ptTwo = {0}", ptTwo);
+
+            WriteLine("ptone + pttwo = {0}", ptOne + ptTwo); // this will Flag a compiler error if th + operator isnt customly design forr intrisic overloading like this
+            WriteLine("ptone - pttwo = {0}", ptOne - ptTwo); // this will Flag a compiler error if th + operator isnt customly design forr intrisic overloading like this
 
 
             #region This is an Intro to Interface and it does not do anyting but make u understand that an interface can ;work on any class in a namespace or assembly

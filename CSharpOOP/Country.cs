@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpOOP
 {
-    class Country
+    public class Country 
     {
         /// <summary>
         /// This is a Small Console Program that allows the user input a country currency code and it displapys the counjtry
